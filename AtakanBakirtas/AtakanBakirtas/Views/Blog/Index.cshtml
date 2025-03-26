@@ -1,0 +1,97 @@
+﻿@using EntityLayer
+@model  List<Blogs>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/MastePage.cshtml";
+}
+<style>
+    body {
+        display: flex;
+        height: 100vh;
+        margin: 0;
+        background: url('/Resimler/pexels-anshul-kumar-495857555-16023919.jpg') no-repeat center center fixed;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    .blog-section {
+        padding: 50px 0;
+    }
+
+    .blog-card {
+        background: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+    .blog-card-body {
+        padding: 20px;
+    }
+
+    .blog-card-title {
+        font-size: 20px;
+        font-weight: bold;
+        color: #2d3436;
+        margin-bottom: 10px;
+    }
+
+    .blog-card-text {
+        font-size: 16px;
+        color: #636e72;
+        height: 50px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .btn-read-more {
+        display: block;
+        text-align: center;
+        background: #007bff;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background 0.3s ease;
+    }
+
+        .btn-read-more:hover {
+            background: #0056b3;
+        }
+</style>
+
+<section class="blog-section">
+    <div class="container">
+        <div class="row">
+            @foreach (var blog in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="blog-card">
+                        <img src="@blog.BlogImage" alt="Blog Görseli">
+                        <div class="blog-card-body">
+                            <h5 class="blog-card-title">@blog.BlogName</h5>
+                            <p class="blog-card-text">@blog.BlogDescription</p>
+                            <a href="@Url.Action("GetBlog", "Blog", new { id = blog.BlogId })" class="btn-read-more">
+                                <i class="fas fa-book-open"></i> Devamını Oku
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

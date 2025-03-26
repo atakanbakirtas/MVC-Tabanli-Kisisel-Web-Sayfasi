@@ -1,0 +1,141 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/MastePage.cshtml";
+}
+
+<div class="contact-container">
+    <div class="contact-form">
+        <h2>Buradan iletişime geçebilirsiniz</h2>
+        <form>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Adınız" required>
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" placeholder="E-posta Adresiniz" required>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" placeholder="Mesajınız" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">GÖNDER</button>
+        </form>
+    </div>
+</div>
+
+<style>
+    body {
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url('/Resimler/pexels-pixabay-267389.jpg') no-repeat center center fixed;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    .contact-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .contact-form {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 30px;
+        border-radius: 10px;
+        text-align: center;
+        width: 400px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+        .contact-form h2 {
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .btn-success {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        background-color: #6c9c61;
+        color: white;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+        .btn-success:hover {
+            background-color: #5b8750;
+        }
+
+    /* Navbar tamamen şeffaf */
+    .navbar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        width: 70px;
+        background: rgba(255, 255, 255, 0); /* Tamamen şeffaf */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+        transition: width 0.3s ease;
+        overflow: hidden;
+    }
+
+        .navbar:hover {
+            width: 220px;
+            background: rgba(189, 195, 199, 0.8); /* Hafif gri, hover ile belirginleşir */
+        }
+
+        .navbar a {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            color: #2c3e50; /* Koyu gri tonlarında yazı */
+            text-decoration: none;
+            padding: 12px;
+            font-weight: 600;
+            transition: background 0.3s ease, color 0.3s ease;
+            white-space: nowrap;
+        }
+
+            .navbar a i {
+                width: 35px;
+                text-align: center;
+                font-size: 22px;
+                margin-right: 10px;
+                color: #34495e;
+            }
+
+            .navbar a span {
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+        .navbar:hover a span {
+            opacity: 1;
+        }
+
+        .navbar a:hover {
+            background: rgba(44, 62, 80, 0.1); /* Hafif koyulaşma efekti */
+            color: #2c3e50;
+        }
+</style>

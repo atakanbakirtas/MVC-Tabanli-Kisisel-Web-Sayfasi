@@ -1,0 +1,81 @@
+﻿@using EntityLayer
+@model Blogs
+@{
+    ViewBag.Title = "GetBlog";
+    Layout = "~/Views/Shared/MastePage.cshtml";
+}
+
+<div class="blog-container">
+    <div class="blog-header">
+        <h2>@Model.BlogName</h2>
+        <p class="blog-date">
+            <i class="far fa-calendar-alt"></i> @Model.BlogTime.ToString("dd MMMM yyyy")
+        </p>
+    </div>
+
+    <div class="blog-content">
+        @Html.Raw(Model.BlogDetails)
+    </div>
+
+    <a href="@Url.Action("Index", "Blog")" class="btn btn-back">
+        <i class="fas fa-arrow-left"></i> Geri Dön
+    </a>
+</div>
+
+<style>
+    .blog-container {
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .blog-header {
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 15px;
+        margin-bottom: 20px;
+    }
+
+        .blog-header h2 {
+            font-size: 28px;
+            color: #2d3436;
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+
+    .blog-date {
+        color: #636e72;
+        font-size: 14px;
+        margin-top: 5px;
+    }
+
+    .blog-content {
+        font-size: 18px;
+        line-height: 1.8;
+        color: #2d3436;
+    }
+
+    .btn-back {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 15px;
+        color: white;
+        background-color: #636e72;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: background 0.3s ease;
+    }
+
+        .btn-back i {
+            margin-right: 5px;
+        }
+
+        .btn-back:hover {
+            background-color: #2d3436;
+        }
+</style>
